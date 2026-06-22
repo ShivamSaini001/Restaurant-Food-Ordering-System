@@ -29,13 +29,12 @@ const FoodCategories = () => {
         { id: 5, title: "Pasta", description: "Delicious pasta dishes with rich sauces and fresh ingredients", image: "/images/food5.jpg" },
         { id: 6, title: "Sandwich", description: "Tasty sandwiches with a variety of fillings and fresh bread", image: "/images/food6.jpg" },
         { id: 7, title: "Desserts", description: "Indulgent desserts to satisfy your sweet tooth", image: "/images/food7.jpg" },
-        { id: 8, title: "Chinese", description: "Flavorful Chinese dishes with a mix of spices and sauces", image: "/images/food8.jpg" },
         { id: 9, title: "South Indian", description: "Authentic South Indian dishes with a variety of flavors", image: "/images/food9.jpg" },
         { id: 10, title: "North Indian", description: "Traditional North Indian dishes with rich flavors and spices", image: "/images/food10.jpg" },
     ];
 
     return (
-        <section className="w-full flex flex-col items-center justify-center gap-4">
+        <section className="w-full flex flex-col items-center justify-center gap-4 my-10">
             <h1 className="text-3xl font-bold text-center">Food Categories</h1>
             {/* Food categories */}
             <div className='flex gap-3 flex-wrap justify-center'>
@@ -54,7 +53,20 @@ const FoodCategories = () => {
             </div>
             {/* Carousel */}
             <div>
-                <div className="w-full max-w-5xl">
+                <div className="w-full max-w-5xl flex flex-wrap gap-3">
+                    {
+                        foodItems?.map(({ id, title, description, image }) => {
+                            return (
+                                <FoodCard
+                                    key={id}
+                                    title={title}
+                                    description={description}
+                                    image={image} />
+                            )
+                        })
+                    }
+
+                    {/*                     
                     <Carousel>
                         <CarouselContent>
                             {
@@ -73,7 +85,7 @@ const FoodCategories = () => {
                         </CarouselContent>
                         <CarouselPrevious />
                         <CarouselNext />
-                    </Carousel>
+                    </Carousel> */}
 
                 </div>
             </div>
